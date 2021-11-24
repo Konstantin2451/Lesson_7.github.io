@@ -1,0 +1,84 @@
+/*Шрифты*/
+@font-face {
+	font-family: 'Conv_framd';
+	src: url('../fonts/framd.eot');
+	src: local('☺'), url('../fonts/framd.woff') format('woff'), url('../fonts/framd.ttf') format('truetype'), url('../fonts/framd.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}/*Указываю директиву на установленный шрифт 
+(как устанавливать шрифт смотри с 10-й минуты)*/
+.font_family{
+	font-family: 'Estonia', cursive;
+	font-size: 30px;
+}
+.fonts img{
+	width: 1250px;
+}
+.fonts input{
+	width: 100px;
+	background-color: green;
+	color: white;
+}
+.install_fonts{
+		font-family: 'Conv_framd';/*Установил шрифт (см. сверху) и поставил его*/
+		font-weight: 400;
+}
+/*Иконочные шрифты*/
+.custom_snow{
+	font-size: 40px;
+	color: #7fb1d7; 
+}/*Здесь я меняю размер и цвет иконки*/
+
+/*Верстка*/
+.layout ul{
+	list-style-type: none;
+}
+.minus{
+	color: red;
+}
+.plus{
+	color: green;
+}
+.layout i{
+	float: left;
+	padding-right: 20px;
+	text-align: center;
+}
+.layout li{
+	font-weight: normal;
+}
+/*Пример*/
+.orange{
+	width: 94%;
+	height: 327px;
+	margin: 3%;
+	background-color: orange;
+}
+.green{
+	width: 20%;
+	height: 600px;
+	margin-left: 3%;
+	background-color: green;
+	float: left;
+}	
+.blue{
+	margin-left: 3%;
+	width: 71%;
+	height: 600px;
+	background-color: blue;
+	float: left;	
+}
+@media (min-width: 400px) and (max-width: 700px) /*При достижении ширины экрана 
+700px и меньше, то изображение не ломается, а откладывается вниз)
+При достижении 400px и меньше, экран становится в прежнее положение - это для телефонов*/
+{
+	.green{
+		width: 94%;
+		margin-right: 3%
+	}
+	.blue{
+		margin-left: 3%;
+		width: 94%;
+
+	}
+}

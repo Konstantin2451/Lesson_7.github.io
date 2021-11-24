@@ -1,0 +1,389 @@
+/*РАЗДЕЛ 6. ПСЕВДОКЛАССЫ*/
+#a_act:active{
+	color: yellow;
+}
+#a_hov:hover{
+	color: pink;
+}
+#a_came:visited{
+	color: green;
+}
+#focus:focus{
+	border: 5px solid green;
+	box-shadow: 0px 0px 20px;
+	width: 500px;
+}
+
+.onetoone>li:nth-child(even){
+	background-color: violet;
+}
+.onetoone>li:nth-child(odd){
+	background-color: orange;
+}
+.onetoone>li:first-child{
+	color: white;
+	background: red;
+}
+.onetoone>li:nth-child(2){
+	background: green;
+}
+.onetoone>li:nth-child(3n){
+	background-color: blue;
+}
+
+/*РАЗДЕЛ 6. ПСЕВДОЭЛЕМЕНТЫ*/
+#t1::first-line{
+	color: red;
+}
+#t2::first-letter{
+	color: red;
+	font-size: 20px;
+}
+#r li::after{
+	content: "!1!";
+}
+#r li::before{
+	content: "??/";
+}
+
+#r2{
+	list-style-type: none;
+}
+#r2 li{
+	margin-bottom: 10px;
+}
+#r2 li::after{
+	content: "";
+}
+#r2 li::before{
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: green;
+	margin-right: 10px;
+}
+
+/*РАЗДЕЛ 6. КОМБИНИРОВАНИЕ ПСЕВДОКЛАССОВ И ПСЕВДОЭЛЕМЕНТОВ.*/
+#r3{
+	list-style-type: none;
+}
+#r3 li{
+	margin-bottom: 10px;
+}
+#r3 li::after{
+	content: "";
+}
+#r3 li::before{
+	content: "";
+	display: block;
+	width: 10px;
+	height: 2px;
+	background-color: green;
+	transition: all 0.3s;
+	transform: scale(0);
+}
+#r3 li:hover::before{
+	content: "";
+	display: block;
+	width: 10px;
+	height: 2px;
+	background-color: green;
+	transition: all 0.3s;
+	transform: scale(1);
+}
+
+/*Анимация с помощью transition*/
+.box{
+	width: 200px;
+	height: 200px;
+	margin: 50px 0px 0px 50px;
+	border: 5px solid black; 
+	transition-duration: 1s;
+	transition-property: width; /*На какие элементы требуется анимация*/
+}
+.box:hover{
+	background-color: green;
+	width: 400px;	
+}
+.opacity{
+	width: 100px;
+	height: 100px;
+	border: 2px solid;
+	transition-duration: 1s;
+	transition-delay: 0.5s;
+}
+.opacity:hover{
+	opacity: 0;
+}
+.box2{
+	width: 200px;
+	height: 200px;
+	margin: 50px 0px 0px 50px;
+	border: 5px solid black;
+	transition: all 5s cubic-bezier(.9,1.84,1,-0.55);
+	/*Равнозначная запись:
+	transition-duration: 5s;
+	transition-property: all; 
+	На какие элементы требуется анимация
+	transition-timing-function: cubic-bezier(.9,1.84,1,-0.55);*/
+}
+.box2:active{
+	background-color: green;
+	margin-left: 500px;
+	width: 400px;
+	height: 400px;
+}
+	/* CSS3 Анимация с помощью KEYFRAMES*/
+.box3{
+	border: 0px ;
+	width: 400px;
+	height: 400px;
+	animation: color 7s infinite alternate;
+	/* Равнозначная запись
+	animation-name: color;
+	animation-duration: 7s;
+	animation-iteration-count: infinite; Кол-во повторений
+	animation-direction: alternate;
+	 Направление анимации.
+	 Я поставил команду, чтобы анимация 
+	 двигалась в обратную сторону*/
+
+}
+@keyframes color
+{
+	0%{
+		background-color: red;
+	}
+	17%
+	{
+		background-color: orange ;
+	}	
+	34%
+	{
+		background-color: yellow;
+	}	
+	53%
+	{
+		background-color: green;
+	}	
+	70%
+	{
+		background-color: blue ;
+	}	
+	87%{
+		background-color: darkblue;
+	}	
+	100%{
+		background-color: darkviolet;
+	}
+}
+.box4{
+	border: 5px solid black ;
+	width: 100px;
+	height: 30px;
+	background-color: yellow;
+	animation-name: move;
+	animation-duration: 3s;
+	animation-fill-mode: forwards;
+}
+@keyframes move{
+	0%{
+		margin-left: 0px;
+	}
+	100%{
+		margin-left: 330px;
+	}
+}
+.box5 a{
+	color: black;
+}
+.box5{
+	margin: 100px;
+	border: 0px;
+	width: 200px;
+	height: 200px;
+	animation: color 7s infinite alternate, move 3s forwards;
+}
+/*2D АНИМАЦИЯ*/
+
+.content__2D .content__wrapper2d div{
+	margin-bottom: 200px;
+	display: flex;
+	text-transform: uppercase;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	letter-spacing: 1px;
+	width: 150px;
+	height: 150px;
+	transition: all 1s ease 0s;
+	color: white;
+}
+.content_translate{
+	background-color: red;
+}
+.content_translate:hover{
+	transform: translate(50px, 50px);
+}
+.content_scale{
+	background: orange;
+}
+.content_scale:hover{
+	transform: scale(2,2);
+}
+
+.content_scale1{
+	background: orange;
+}
+.content_scale1:hover{
+	transform: scale(0, -0.5);
+}
+.content_rotate{
+	background-color: green;
+}
+.content_rotate:hover{
+	transform: rotate(50deg);
+}
+.content_skew{
+	background-color: black;
+}
+.content_skew:hover{
+	transform: skew(-50deg, 30deg);
+}
+.content_matrix{
+	background-color: blue;
+}
+.content_matrix:hover{
+	transform: matrix(2, 1, 1, 0, 0, 0);
+	/*Многозадачный трансформ, вмещающий
+	вышеуказанные трансформы.
+	 Не вижу смысла его использовать*/
+}
+.content_mix{
+	background-color: yellow;
+}
+.content_mix:active{
+	transform: rotate(50deg) scale(1.5, 1.2) translate(200px, 100px);
+}
+.content_origin{
+	background-color: pink;
+	transform-origin: left;
+}
+.content_origin:hover{
+	transform: rotate(-50deg);
+}
+.box6{
+	animation-iteration-count: infinite;
+}
+.box7{
+	animation-iteration-count: infinite;
+}
+.content__3D .content__wrapper3d{
+	width: 150px;
+	height: 150px;
+	background-color: black;
+	perspective-origin: center;
+	perspective: 400px;
+	margin-bottom: 100px;
+}
+.content__3D .content__wrapper3d div{
+	display: flex;
+	text-transform: uppercase;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	letter-spacing: 1px;
+	width: 150px;
+	height: 150px;
+	transition: all 1s ease 0s;
+	color: white;	
+}
+.content_perspective{
+	background-color: green;
+}
+.content_perspective:hover{
+	transform: rotateX(50deg);
+}
+.translate3D{
+	background-color: blue;
+	transform: translate3d(0px, 0px, 0px);
+}
+
+.translate3D:hover{
+	transform: translate3d(50px, 50px, 50px);
+}
+.scale3D{
+	background-color: red;
+	transform: scale3d(1, 1, 1) translate3d(0px, 0px, 0px);
+}
+.scale3D:hover{
+	transform: scale3d(1.2, 1.2, 1.2) translate3d(40px, 10px, 20px);
+}
+.rotate3D{
+	background-color: orange;
+	transform: rotate3d(1, 1, 1, 0deg);
+}
+.rotate3D:hover{
+	transform: rotate3d(1, 0.5, 1, 50deg);
+}
+.content_transform_style{
+	width: 150px;
+	height: 150px;
+	background-color: rgba(0,0,0, 0.3);
+	perspective: 400px;
+	transform-style: preserve-3d;/*Важно*/
+}
+.transform_style{
+	display: flex;
+	text-transform: uppercase;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	letter-spacing: 1px;
+	width: 150px;
+	height: 150px;
+	transition: all 1s ease 0s;
+	color: white;	
+	background-color: green;
+	transform: rotateX(0deg);
+}
+.transform_style:hover{
+transform: rotateX(50deg);
+}
+.flip{
+	margin-top: 100px;
+}
+.flip_body{
+	position: relative;
+	width: 150px;
+	height: 150px;
+	transition: all 1s ease 0s;
+	transform-style: preserve-3d;
+}
+.flip_front,
+.flip_back{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+.flip_front{
+	z-index: 2;
+	transform: rotateY(0deg);
+	background-color: red;
+	backface-visibility: hidden;
+}
+.flip_back{
+	transform: rotateY(-180deg);
+	background-color: blue;
+}
+.flip:hover .flip_body{
+	transform: rotateY(-180deg);
+}
